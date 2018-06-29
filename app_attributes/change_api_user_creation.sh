@@ -1,4 +1,5 @@
 #!/bin/bash
+#Change (if already present) a server-wise attribute that allow creation of users via API
 DEFAULT_SDC_API_URL='https://app.sysdigcloud.com'
 DEFAULT_API_USER_CREATION_ENABLE='true'
 

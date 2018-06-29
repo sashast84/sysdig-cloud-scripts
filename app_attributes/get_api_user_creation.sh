@@ -1,4 +1,5 @@
 #!/bin/bash
+#Get (if present) a server-wise attribute that allow creation of users via API
 DEFAULT_SDC_API_URL='https://app.sysdigcloud.com'
 
 echo -n "Enter API URL [${DEFAULT_SDC_API_URL}]: "
