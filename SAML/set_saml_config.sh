@@ -2,6 +2,7 @@
 DEFAULT_SDC_API_URL='https://app.sysdigcloud.com'
 DEFAULT_SIGNED_ASSERTION='true'
 DEFAULT_EMAIL_PARAM='email'
+DEFAULT_CREATE_USER_ON_LOGIN='true'
 
 echo -n "Enter API URL [${DEFAULT_SDC_API_URL}]: "
 read SDC_API_URL
@@ -39,10 +40,16 @@ if [ "z${EMAIL_PARAM}" = "z" ]; then
   EMAIL_PARAM="${DEFAULT_EMAIL_PARAM}"
 fi
 
+echo -n "Create new user upon successful SAML login [${DEFAULT_CREATE_USER_ON_LOGIN}]: "
+read CREATE_USER_ON_LOGIN
+if [ "z${CREATE_USER_ON_LOGIN}" = "z" ]; then
+  CREATE_USER_ON_LOGIN="${DEFAULT_CREATE_USER_ON_LOGIN}"
+fi
+
 set -x
 
 curl -XPOST -v -k ''"${SDC_API_URL}"'/api/admin/customer/'"${CUSTOMER_ID}"'/saml/' \
            -H 'Content-Type: application/json; charset=UTF-8' \
            -H 'Accept: application/json, text/javascript, */*; q=0.01' \
            -H 'Authorization: Bearer '"${API_TOKEN}"'' \
-           --data-binary '{"metadataUrl": "'"${METADATA_URL}"'", "signedAssertion": "'"${SIGNED_ASSERTION}"'", "emailParameter": "'"${EMAIL_PARAM}"'" }' --compressed
+           --data-binary '{"metadataUrl": "'"${METADATA_URL}"'", "signedAssertion": "'"${SIGNED_ASSERTION}"'", "emailParameter": "'"${EMAIL_PARAM}"'", "createUserOnLogin": "'"${CREATE_USER_ON_LOGIN}"'"}' --compressed

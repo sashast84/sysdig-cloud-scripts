@@ -7,7 +7,7 @@
   },
   "loginFilter": {
     "searchBase": "cn=Users",
-    "searchFilter": "(&(objectClass=organizationalPerson)(sAMAccountName={0}))"
+    "searchFilter": "(&(objectClass=organizationalPerson)(mail={0}))"
   },
   "enableLdapAuthentication": true
 }

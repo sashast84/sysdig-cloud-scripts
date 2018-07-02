@@ -16,7 +16,7 @@ HELP=false
 eval set -- "$OPTS"
 
 function print_usage() {
-  echo "Usage: ./login_config [OPTION]"
+  echo "Usage: ./login_config.sh [OPTION]"
   echo
   echo "Affect LDAP login settings for your Sysdig software platform installation"
   echo
