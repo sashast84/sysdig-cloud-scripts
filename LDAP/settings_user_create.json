@@ -1,8 +1,8 @@
 {
-  "username": "msmith",
+  "username": "msmith@example.local",
   "firstName": "Mary",
   "lastName": "Smith",
-  "password": "notUsed",
+  "password": "thisUserPassword",
   "customer": {
     "id": 1
   }

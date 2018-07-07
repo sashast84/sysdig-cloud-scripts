@@ -5,9 +5,5 @@
     "managerDn": "cn=Administrator,cn=Users,dc=example,dc=local",
     "managerPassword": "myMgrPassword"
   },
-  "loginFilter": {
-    "searchBase": "cn=Users",
-    "searchFilter": "(&(objectClass=organizationalPerson)(mail={0}))"
-  },
-  "enableLdapAuthentication": true
+  "enableLdapAuthentication": false
 }
