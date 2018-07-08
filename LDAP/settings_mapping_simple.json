@@ -9,7 +9,7 @@
           "Viewers"
         ],
         "teamRole": "ROLE_TEAM_READ",
-        "usernameAttribute": "mail"
+        "usernameAttribute": "sAMAccountName"
       },
       {
         "ldapFilterSettings": {
@@ -21,7 +21,7 @@
           "Editors2"
         ],
         "teamRole": "ROLE_TEAM_EDIT",
-        "usernameAttribute": "mail"
+        "usernameAttribute": "sAMAccountName"
       },
       {
         "ldapFilterSettings": {
@@ -32,7 +32,7 @@
           "Mixed"
         ],
         "teamRole": "ROLE_TEAM_EDIT",
-        "usernameAttribute": "mail"
+        "usernameAttribute": "sAMAccountName"
       },
       {
         "ldapFilterSettings": {
@@ -43,7 +43,7 @@
           "Mixed"
         ],
         "teamRole": "ROLE_TEAM_READ",
-        "usernameAttribute": "mail"
+        "usernameAttribute": "sAMAccountName"
       }
     ],
     "dryRun": true
