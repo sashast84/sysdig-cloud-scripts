@@ -1,0 +1,9 @@
+{
+  "loginConnectionSettings": {
+    "server": "ldap://172.16.0.1",
+    "rootDn": "dc=example,dc=local",
+    "managerDn": "cn=Administrator,cn=Users,dc=example,dc=local",
+    "managerPassword": "myMgrPassword"
+  },
+  "enableLdapAuthentication": false
+}
