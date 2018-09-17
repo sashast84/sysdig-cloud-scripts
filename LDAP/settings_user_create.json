@@ -1,9 +1,0 @@
-{
-  "username": "msmith@example.local",
-  "firstName": "Mary",
-  "lastName": "Smith",
-  "password": "thisUserPassword",
-  "customer": {
-    "id": 1
-  }
-}
