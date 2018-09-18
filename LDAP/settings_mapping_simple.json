@@ -46,5 +46,31 @@
         "usernameAttribute": "sAMAccountName"
       }
     ],
+    "teamDefinitions": [
+      {
+        "name": "Mixed",
+        "show": "host"
+      },
+      {
+        "name": "Viewers",
+        "show": "host"
+      },
+      {
+        "name": "Editors1",
+        "show": "host"
+      },
+      {
+        "name": "Editors2",
+        "theme": "#FF5C49",
+        "show": "container",
+        "filter": "container.image contains \"mysql\"",
+        "canUseSysdigCapture": false,
+        "canUseCustomEvents": false,
+        "canUseAwsMetrics": false,
+        "entryPoint": {
+          "module": "Dashboards"
+        }
+      }
+    ],
     "dryRun": true
 }
