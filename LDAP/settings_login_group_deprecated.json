@@ -12,5 +12,6 @@
     "groupSearchFilter": "(&(cn=Mars)(objectclass=group))",
     "groupMembershipFilter": ""
   },
-  "enableLdapAuthentication": true
+  "enableLdapAuthentication": true,
+  "allowApiUserCreation": false
 }

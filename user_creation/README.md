@@ -24,27 +24,11 @@ If no OPTION is specified, the current API User Creation settings are printed
 General options:
   -h | --help             Print this Usage output
 
-Options for changing permissions:
-  -e | --enable           Enable API-based user creation (it's enabled by default)
-  -d | --disable          Disable API-based user creation
-
 Options for creating a user record:
   -u | --username         Username for the user record to create
   -p | --password         Password for the user record to create
   -f | --firstname        (optional) First name for the user record to create
   -l | --lastname         (optional) Last name for the user record to create
-```
-
-To see whether user creation is currently enabled/disabled, invoke with no options:
-
-```
-# ./create_user.sh
-{
-    "apiPermissionSettings": {
-        "allowApiUserCreation": true,
-        "version": 1
-    }
-}
 ```
 
 To create a user record, at minimum, you must specify a username and password. The username should be a valid email address, unless you have LDAP authentication enabled in which case a simple username is also permitted. If successful, the call to the API will echo back a JSON object for the successfully-created user.
@@ -59,31 +43,4 @@ Optional parameters to specify a first name and/or last name for the user record
 ```
 # ./create_user.sh -u msmith@example.local -p MsmithInitPasswd -f Mary -l Smith
 {"user":{"termsAndConditions":true, ... ,"username":"msmith@example.local","dateCreated":1536878724933,"status":"confirmed","systemRole":"ROLE_USER","firstName":"Mary","lastName":"Smith"}}
-```
-
-To disable the ability to create users via the API:
-
-```
-# ./create_user.sh -d
-{
-    "apiPermissionSettings": {
-        "allowApiUserCreation": false,
-        "version": 2
-    }
-}
-
-# ./create_user.sh -u failure@example.local -p ThisWontWork
-{"errors":[{"reason":"Cannot add user","message":"User API creation is not enabled"}]}
-```
-
-To re-enable the ability to create users via the API:
-
-```
-# ./create_user.sh -e
-{
-    "apiPermissionSettings": {
-        "allowApiUserCreation": true,
-        "version": 3
-    }
-}
 ```

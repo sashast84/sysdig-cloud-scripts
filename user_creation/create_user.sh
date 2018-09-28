@@ -8,8 +8,6 @@ if [ $? != 0 ] ; then
 fi
 
 ENV="./env.sh"
-ENABLE=false
-DISABLE=false
 USERNAME=""
 FIRSTNAME=""
 LASTNAME=""
@@ -28,10 +26,6 @@ function print_usage() {
   echo "General options:"
   echo "  -h | --help             Print this Usage output"
   echo
-  echo "Options for changing permissions:"
-  echo "  -e | --enable           Enable API-based user creation (it's enabled by default)"
-  echo "  -d | --disable          Disable API-based user creation"
-  echo
   echo "Options for creating a user record:"
   echo "  -u | --username         Username for the user record to create"
   echo "  -p | --password         Password for the user record to create"
@@ -42,8 +36,6 @@ function print_usage() {
 
 while true; do
   case "$1" in
-    -e | --enable ) ENABLE=true; shift ;;
-    -d | --disable ) DISABLE=true; shift ;;
     -u | --username ) USERNAME="$2"; shift; shift ;;
     -p | --password ) PASSWORD="$2"; shift; shift ;;
     -f | --firstname ) FIRSTNAME="$2"; shift; shift ;;
@@ -73,28 +65,8 @@ else
   exit 1
 fi
 
-if [ $ENABLE = true -o $DISABLE = true ] ; then
-  if [ -n "$USERNAME" -o -n "$PASSWORD" -o -n "$FIRSTNAME" -o -n "$LASTNAME" ] ; then
-    print_usage
-  elif [ $ENABLE = true -a $DISABLE = true ] ; then
-    print_usage
-  else
-    if [ $ENABLE = true ] ; then
-      VALUE="true"
-    else
-      VALUE="false"
-    fi
-    curl ${CURL_OPTS} \
-      -H "Authorization: Bearer $API_TOKEN" \
-      -H "Content-Type: application/json; charset=UTF-8" \
-      -X POST \
-      --data-binary  '{"allowApiUserCreation":"'"${VALUE}"'"}' \
-      $URL/api/admin/customer/${CUSTOMER_ID}/apiPermissionSettings  | ${JSON_FILTER}
-    exit $?
-  fi
-
-elif [ -n "$USERNAME" ] ; then
-  if [ $ENABLE = true -o $DISABLE = true -o -z "$PASSWORD" ] ; then
+if [ -n "$USERNAME" ] ; then
+  if [ -o -z "$PASSWORD" ] ; then
     print_usage
   else
     JSON='{"username": "'"${USERNAME}"'","password":"'"${PASSWORD}"'","customer":{"id":"'${CUSTOMER_ID}'"}'
@@ -115,11 +87,4 @@ elif [ -n "$USERNAME" ] ; then
 
 elif [ -n "$PASSWORD" -o -n "$FIRSTNAME" -o -n "$LASTNAME" ] ; then
   print_usage
-
-else
-  curl $CURL_OPTS \
-    -H "Authorization: Bearer $API_TOKEN" \
-    -X GET \
-    $URL/api/admin/customer/${CUSTOMER_ID}/apiPermissionSettings | ${JSON_FILTER}
-    exit $?
-fi
+  fi

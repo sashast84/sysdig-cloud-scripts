@@ -9,5 +9,6 @@
     "searchBase": "dc=example,dc=local",
     "searchFilter": "(&(objectClass=organizationalPerson)(sAMAccountName={0}))"
   },
-  "enableLdapAuthentication": true
+  "enableLdapAuthentication": true,
+  "allowApiUserCreation": false
 }

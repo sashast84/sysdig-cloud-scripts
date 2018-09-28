@@ -7,12 +7,12 @@
 #
 # https://support.sysdig.com/hc/en-us/articles/115004951443-Locating-the-Super-Admin-User
 #
-export API_TOKEN="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+export API_TOKEN="103c03f7-5167-4db6-9b19-a2f5baf33f1c"
 
 #
 # Set this to the URL through which you access your Sysdig application UI.
 #
-export URL="https://10.0.0.1"
+export URL="http://localhost:9000"
 
 #
 # This should be set to your customer ID number, which will almost always be 1. If
