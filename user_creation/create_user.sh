@@ -19,9 +19,7 @@ eval set -- "$OPTS"
 function print_usage() {
   echo "Usage: ./create_user.sh [OPTION]"
   echo
-  echo "Create a user record, or change permissions for API-based user creation"
-  echo
-  echo "If no OPTION is specified, the current API User Creation settings are printed"
+  echo "Create a user record"
   echo
   echo "General options:"
   echo "  -h | --help             Print this Usage output"
