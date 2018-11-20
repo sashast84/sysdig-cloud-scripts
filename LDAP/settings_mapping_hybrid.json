@@ -49,15 +49,18 @@
     "teamDefinitions": [
       {
         "name": "Mixed",
-        "show": "host"
+        "show": "host",
+        "products": ["SDC"]
       },
       {
         "name": "Viewers",
-        "show": "host"
+        "show": "host",
+        "products": ["SDC"]
       },
       {
         "name": "Editors1",
-        "show": "host"
+        "show": "host",
+        "products": ["SDC"]
       },
       {
         "name": "Editors2",
@@ -69,7 +72,8 @@
         "canUseAwsMetrics": false,
         "entryPoint": {
           "module": "Dashboards"
-        }
+        },
+        "products": ["SDC"]
       }
     ],
     "dryRun": true
